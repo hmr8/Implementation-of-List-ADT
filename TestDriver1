@@ -1,0 +1,527 @@
+
+package testdriver1;
+import java.util.Random;
+
+class TestDriver1{
+    LinkList l = new LinkList();
+    int nbf=0;
+    int hlength=100;
+
+
+        
+      
+    public boolean firstrule()
+    {
+            
+        //List(init.h.insertfirst(a).first) = a+List(init.h.first)
+
+       int hl;
+        int hlength = 100;
+        int[] hop = new int[hlength];
+        int[] hparam= new int[hlength];
+	int storesize;
+	boolean  storeempty;
+	int storefirst;
+	int storelast;
+	int storesmallest;
+        int storelargest;
+        int Xsize = 14;
+        int paramrange = 10;
+        
+        
+	int hplusl;
+        int[] hplusop= new int[hlength];
+        int[]  hplusparam= new int[hlength];
+        
+	boolean succesfultest;
+	
+	
+	hl = randnat(hlength);
+	for(int k=0;k<hl-1;k++)
+	{
+		hop[k] = gt0randnat(Xsize);
+		if(hop[k] == 1 || hop[k] == 2 || hop[k] == 3)
+		{
+			hparam[k] = randnat(paramrange);}
+        }
+            hplusl= gt0randnat(hlength);
+            for(int k=0;k< hplusl - 1;k++)
+            {
+                hplusop[k] = gt0randnat(Xsize);
+                if(hplusop[k] == 1  || hplusop[k] == 2 || hplusop[k] == 3)
+                {
+                        hplusparam[k]= randnat(paramrange);
+                }
+        }
+// lefthand side
+l.init();
+historygenerator(hl,hop,hparam);
+	l.first();
+	historygenerator(hplusl,hplusop,hplusparam);
+	//store resulting set
+	storesize = l.size1();
+	storeempty = l.empty();
+	storefirst  = l. first();
+	storelast =  l. last();
+	storesmallest =  l. smallest();
+	storelargest =  l. largest();
+	// right hand side rule
+	l. init();
+	historygenerator(hl,hop,hparam);
+	historygenerator(hplusl,hplusop,hplusparam);
+	//compare
+	succesfultest = ((storelast==l.last()) && (storesmallest==l.smallest()) && (storesize==l.size1()) && (storeempty== l.empty()) && (storefirst==l.first()) && (storelargest==l.largest()));
+            if(!succesfultest)
+            {
+		nbf++;
+                
+            }
+            
+            return succesfultest;
+    }
+
+
+    
+    
+    
+    
+    public boolean deletelast(){
+    //List(init.insertfirst(a).deletelast().h) = list(init.h)
+        
+        int hl;
+        int hlength=100;
+        int Xsize = 14;
+        int[] hop = new int[hlength];
+        
+        
+        int[] hparam = new int[hlength];
+        
+	int hplusl;
+        int[] hplusop= new int[hlength];
+        int[]  hplusparam= new int[hlength];
+	int storesize;
+	boolean  storeempty;
+	int storefirst;
+	int storelast;
+	int storesmallest;
+        int storelargest;
+        int paramrange =10;
+
+	boolean succesfultest;
+	
+	hl = randnat(hlength);
+	for(int k=0;k< hl-1;k++)
+	{
+		hop[k] = gt0randnat(Xsize);
+            //hop[k]=1;
+		if(hop[k] == 1 || hop[k] == 2 || hop[k] == 3)
+		{
+			hparam[k] = randnat(paramrange);
+                }
+        }
+        hplusl = gt0randnat(hlength);
+    for(int k=0;k<hplusl-1;k++)
+    {
+	hplusop[k] = gt0randnat(Xsize);
+        if(hplusop[k] == 1 || hplusop[k] == 2 || hplusop[k] == 3)
+        {
+            hplusparam[k]= randnat(paramrange);
+        }
+    }
+        
+    // lefthand side
+        l.init();
+        int a = randnat(paramrange); 
+	l.insertFirst(a);
+	l.deleteLast();
+        historygenerator(hl,hop,hparam);
+        
+        //store resulting set
+	storesize = l.size1();
+	storeempty = l.empty();
+	storefirst  = l. first();
+	storelast =  l. last();
+	storesmallest =  l. smallest();
+	storelargest =  l. largest();
+	// right hand side rule
+	l.init();
+        historygenerator(hl,hop,hparam);
+        //compare
+	succesfultest = ((storelast==l.last()) && (storesmallest==l.smallest()) && (storesize==l.size1()) && (storeempty== l.empty()) && (storefirst==l.first()) && (storelargest==l.largest()));
+        
+        if(!succesfultest)
+        {nbf++;
+            
+        }
+            return succesfultest;
+    }
+    
+    
+    
+    
+    
+    
+    
+public boolean insertlast(){
+       //List(init.h.insertlast(a).insertlast(b)) = list(init.h.insertlast(b))
+    int hl;
+        int hlength=100;
+        int Xsize = 14;
+        int[] hop = new int[hlength];
+        
+        
+        int[] hparam = new int[hlength];
+        
+	int hplusl;
+        int[] hplusop= new int[hlength];
+        int[]  hplusparam= new int[hlength];
+	int storesize;
+	boolean  storeempty;
+	int storefirst;
+	int storelast;
+	int storesmallest;
+        int storelargest;
+        int paramrange =10;
+
+	boolean succesfultest;
+	
+	hl = randnat(hlength);
+	for(int k=0;k< hl-1;k++)
+	{
+		hop[k] = gt0randnat(Xsize);
+            //hop[k]=1;
+		if(hop[k] == 1 || hop[k] == 2 || hop[k] == 3)
+		{
+			hparam[k] = randnat(paramrange);
+                }
+        }
+        hplusl = gt0randnat(hlength);
+    for(int k=0;k<hplusl-1;k++)
+    {
+	hplusop[k] = gt0randnat(Xsize);
+        if(hplusop[k] == 1 || hplusop[k] == 2 || hplusop[k] == 3)
+        {
+            hplusparam[k]= randnat(paramrange);
+        }
+    }
+    // lefthand side
+        l.init();
+        historygenerator(hl,hop,hparam);
+        int a = randnat(paramrange); 
+	l.insertLast(a);
+	l.insertLast(a);
+        
+        
+        //store resulting set
+	storesize = l.size1();
+	storeempty = l.empty();
+	storefirst  = l. first();
+	storelast =  l. last();
+	storesmallest =  l. smallest();
+	storelargest =  l. largest();
+	// right hand side rule
+	l.init();
+        historygenerator(hl,hop,hparam);
+        l.insertLast(a);
+        //compare
+	succesfultest = ((storelast==l.last()) && (storesmallest==l.smallest()) && (storesize==l.size1()) && (storeempty== l.empty()) && (storefirst==l.first()) && (storelargest==l.largest()));
+        
+        if(!succesfultest)
+        {nbf++;
+            
+        }
+            return succesfultest;
+}
+
+
+
+public boolean  deletefirst(){
+    //List(init.insertfirst(a).deletefirst().h) = list(init.h)
+    
+    int hl;
+        int hlength=100;
+        int Xsize = 14;
+        int[] hop = new int[hlength];
+        
+        
+        int[] hparam = new int[hlength];
+        
+	int hplusl;
+        int[] hplusop= new int[hlength];
+        int[]  hplusparam= new int[hlength];
+	int storesize;
+	boolean  storeempty;
+	int storefirst;
+	int storelast;
+	int storesmallest;
+        int storelargest;
+        int paramrange =10;
+
+	boolean succesfultest;
+	
+	hl = randnat(hlength);
+	for(int k=0;k< hl-1;k++)
+	{
+		hop[k] = gt0randnat(Xsize);
+            //hop[k]=1;
+		if(hop[k] == 1 || hop[k] == 2 || hop[k] == 3)
+		{
+			hparam[k] = randnat(paramrange);
+                }
+        }
+        hplusl = gt0randnat(hlength);
+    for(int k=0;k<hplusl-1;k++)
+    {
+	hplusop[k] = gt0randnat(Xsize);
+        if(hplusop[k] == 1 || hplusop[k] == 2 || hplusop[k] == 3)
+        {
+            hplusparam[k]= randnat(paramrange);
+        }
+    }
+    // lefthand side
+        l.init();
+        
+        int a = randnat(paramrange); 
+	l.insertFirst(a);
+	l.deleteFirst();
+        historygenerator(hl,hop,hparam);
+        
+        
+        //store resulting set
+	storesize = l.size1();
+	storeempty = l.empty();
+	storefirst  = l. first();
+	storelast =  l. last();
+	storesmallest =  l. smallest();
+	storelargest =  l. largest();
+	// right hand side rule
+	l.init();
+        historygenerator(hl,hop,hparam);
+        
+        //compare
+	succesfultest = ((storelast==l.last()) && (storesmallest==l.smallest()) && (storesize==l.size1()) && (storeempty== l.empty()) && (storefirst==l.first()) && (storelargest==l.largest()));
+        
+        if(!succesfultest)
+        {nbf++;
+            
+        }
+            return succesfultest;
+}
+
+
+
+
+public boolean insertfirst(){
+    
+   // List(init.h.insertfirst(a)) = list(init.h.insert@(1,a))
+    
+    int hl;
+        int hlength=100;
+        int Xsize = 14;
+        int[] hop = new int[hlength];
+        
+        
+        int[] hparam = new int[hlength];
+        
+	int hplusl;
+        int[] hplusop= new int[hlength];
+        int[]  hplusparam= new int[hlength];
+	int storesize;
+	boolean  storeempty;
+	int storefirst;
+	int storelast;
+	int storesmallest;
+        int storelargest;
+        int paramrange =10;
+
+	boolean succesfultest;
+	
+	hl = randnat(hlength);
+	for(int k=0;k< hl-1;k++)
+	{
+		hop[k] = gt0randnat(Xsize);
+            //hop[k]=1;
+		if(hop[k] == 1 || hop[k] == 2 || hop[k] == 3)
+		{
+			hparam[k] = randnat(paramrange);
+                }
+        }
+        hplusl = gt0randnat(hlength);
+    for(int k=0;k<hplusl-1;k++)
+    {
+	hplusop[k] = gt0randnat(Xsize);
+        if(hplusop[k] == 1 || hplusop[k] == 2 || hplusop[k] == 3)
+        {
+            hplusparam[k]= randnat(paramrange);
+        }
+    }
+    // lefthand side
+        l.init();
+        historygenerator(hl,hop,hparam);
+        int a = randnat(paramrange); 
+	l.insertFirst(a);
+	
+        
+        
+        
+        //store resulting set
+	storesize = l.size1();
+	storeempty = l.empty();
+	storefirst  = l. first();
+	storelast =  l. last();
+	storesmallest =  l. smallest();
+	storelargest =  l. largest();
+	// right hand side rule
+	l.init();
+        historygenerator(hl,hop,hparam);
+        l.insertAt(1, 1);
+        
+        //compare
+	succesfultest = ((storelast==l.last()) && (storesmallest==l.smallest()) && (storesize==l.size1()) && (storeempty== l.empty()) && (storefirst==l.first()) && (storelargest==l.largest()));
+        
+        if(!succesfultest)
+        {nbf++;
+            
+        }
+            return succesfultest;
+}
+ public boolean size1rule(){
+     //List(init.h.insertfirst(a).size) = 1+List(init.h.size)
+     
+     int hl;
+        int hlength=100;
+        int Xsize = 14;
+        int[] hop = new int[hlength];
+        
+        
+        int[] hparam = new int[hlength];
+        
+	int hplusl;
+        int[] hplusop= new int[hlength];
+        int[]  hplusparam= new int[hlength];
+	int storesize;
+	boolean  storeempty;
+	int storefirst;
+	int storelast;
+	int storesmallest;
+        int storelargest;
+        int paramrange =10;
+
+	boolean succesfultest;
+	
+	hl = randnat(hlength);
+	for(int k=0;k< hl-1;k++)
+	{
+		hop[k] = gt0randnat(Xsize);
+            //hop[k]=1;
+		if(hop[k] == 1 || hop[k] == 2 || hop[k] == 3)
+		{
+			hparam[k] = randnat(paramrange);
+                }
+        }
+        hplusl = gt0randnat(hlength);
+    for(int k=0;k<hplusl-1;k++)
+    {
+	hplusop[k] = gt0randnat(Xsize);
+        if(hplusop[k] == 1 || hplusop[k] == 2 || hplusop[k] == 3)
+        {
+            hplusparam[k]= randnat(paramrange);
+        }
+    }
+    // lefthand side
+        l.init();
+        historygenerator(hl,hop,hparam);
+        int a = randnat(paramrange); 
+	l.insertFirst(a);
+        l.size1();
+	
+        
+        
+        
+        //store resulting set
+	storesize = l.size1();
+	storeempty = l.empty();
+	storefirst  = l. first();
+	storelast =  l. last();
+	storesmallest =  l. smallest();
+	storelargest =  l. largest();
+	// right hand side rule
+	l.init();
+        historygenerator(hl,hop,hparam);
+        l.size1();
+        
+        //compare
+	succesfultest = ((storelast==l.last()) && (storesmallest==l.smallest()) && (storesize==l.size1()) && (storeempty== l.empty()) && (storefirst==l.first()) && (storelargest==l.largest()));
+        
+        if(!succesfultest)
+        {nbf++;
+            
+        }
+            return succesfultest;
+    
+}
+
+
+    void historygenerator(int h1,int [] hop,int [] hparam)
+    {
+        int dumsize;boolean dumempty; int dumtop;
+        for(int k=0;k<h1-1;k++)
+        {
+            switch (hop[k])
+            {
+                case 1:l.insertFirst(11); break;
+                
+                case 2: l.insertLast(10); break;
+                case 3: l.deleteFirst(); break;
+                case 4: l.deleteLast(); break;
+                case 5: l.size1(); break;
+                case 6: l.empty();break;
+                case 7: l.choose();break;
+                case 8: l.first();break;
+                case 9: l.last();break;
+                case 10:l.smallest();break;
+                case 11:l.largest();break;
+                 
+                
+            }
+        }
+    }
+    int randnat(int rangemax)
+    {
+        return (int)(rangemax+1)*nextRand();
+    }
+    
+    int gt0randnat(int rangemax){
+        return 1 + randnat(rangemax-1);
+    }
+int nextRand() {
+        int n=0;
+        return n;
+}
+
+public static void main(String args[]){
+        TestDriver1 a =new TestDriver1();
+         LinkList l = new LinkList();
+         
+    for(int i=0;i<10;i++)
+    {
+        switch(i%6){
+            
+            case 0: a.firstrule();break;
+            case 1: a.deletelast();break;
+            case 2: a.insertlast();break;
+            case 3: a.insertfirst();break;
+            case 4: a. deletefirst();break;
+            case 5: a.size1rule();break;
+                
+                
+        }
+        
+        System.out.println(a.nbf);
+    }
+        
+    }
+
+     
+     
+}
